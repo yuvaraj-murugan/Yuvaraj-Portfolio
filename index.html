@@ -4,282 +4,581 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>M. Yuvaraj - Data Analyst Portfolio</title>
-<meta name="description" content="Data Analyst with 5 years experience in Power BI, Tableau, SQL, Python">
+<meta name="description" content="Data Analyst with 5 years experience in Healthcare and E-commerce analytics. Expert in SQL, Power BI, Tableau, Python.">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
 * { margin: 0; padding: 0; box-sizing: border-box; }
+:root {
+  --navy: #0a1628;
+  --navy-light: #1e3a5f;
+  --teal: #00d4aa;
+  --blue: #4a90e2;
+  --white: #f0f6ff;
+  --gray: #b8c5d6;
+  --gray-dark: #7a93b0;
+}
 body {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  background: #0a1628;
-  color: #f0f6ff;
+  font-family: 'Inter', sans-serif;
+  background: var(--navy);
+  color: var(--white);
   line-height: 1.6;
 }
+.container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
 nav {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  background: rgba(10,22,40,0.95);
-  backdrop-filter: blur(10px);
-  padding: 1rem 2rem;
-  z-index: 1000;
-  border-bottom: 1px solid rgba(0,229,184,0.12);
+  position: fixed; top: 0; width: 100%; background: rgba(10,22,40,0.95);
+  padding: 1rem 0; z-index: 100; backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(0,212,170,0.2);
 }
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 2rem;
+.nav-content { display: flex; justify-content: space-between; align-items: center; }
+.logo { font-size: 1.5rem; font-weight: 700; color: var(--teal); }
+.nav-links { display: flex; gap: 2rem; list-style: none; }
+.nav-links a {
+  color: var(--gray); text-decoration: none; font-weight: 500;
+  transition: color 0.3s;
 }
+.nav-links a:hover { color: var(--teal); }
 .hero {
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  padding: 6rem 2rem;
+  min-height: 100vh; display: flex; align-items: center;
+  padding: 100px 2rem 80px; position: relative;
 }
 .hero h1 {
-  font-size: 3.5rem;
-  margin-bottom: 1rem;
-  color: #00e5b8;
+  font-size: 4rem; font-weight: 800; margin-bottom: 1rem;
+  background: linear-gradient(135deg, var(--white), var(--teal));
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
 }
+.hero h2 { font-size: 2rem; color: var(--blue); margin-bottom: 1.5rem; }
 .hero p {
-  font-size: 1.2rem;
-  color: #7a93b0;
-  max-width: 600px;
-  margin-bottom: 2rem;
+  font-size: 1.1rem; color: var(--gray); max-width: 700px;
+  margin-bottom: 2rem; line-height: 1.8;
 }
-.section {
-  padding: 4rem 2rem;
+.btn {
+  display: inline-block; padding: 1rem 2rem; border-radius: 8px;
+  text-decoration: none; font-weight: 600; margin-right: 1rem;
+  transition: all 0.3s; margin-bottom: 0.5rem;
 }
+.btn-primary {
+  background: linear-gradient(135deg, var(--teal), var(--blue));
+  color: var(--white);
+}
+.btn-primary:hover { transform: translateY(-3px); box-shadow: 0 10px 30px rgba(0,212,170,0.3); }
+.btn-outline {
+  border: 2px solid var(--teal); color: var(--teal); background: transparent;
+}
+.btn-outline:hover { background: var(--teal); color: var(--navy); }
+.stats {
+  display: grid; grid-template-columns: repeat(4, 1fr);
+  gap: 2rem; margin-top: 3rem;
+}
+.stat { text-align: center; padding: 1.5rem; background: rgba(255,255,255,0.05);
+  border-radius: 12px; border: 1px solid rgba(0,212,170,0.2);
+}
+.stat-num { font-size: 2.5rem; font-weight: 700; color: var(--teal); }
+.stat-label { font-size: 0.9rem; color: var(--gray); margin-top: 0.5rem; }
+section { padding: 80px 2rem; }
 .section-title {
-  font-size: 2.5rem;
-  margin-bottom: 2rem;
-  color: #00e5b8;
+  font-size: 2.5rem; text-align: center; margin-bottom: 1rem;
+  background: linear-gradient(135deg, var(--white), var(--teal));
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
 }
-.skills-grid, .projects-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 2rem;
-  margin-top: 2rem;
-}
-.card {
-  background: rgba(17,34,64,0.8);
-  padding: 2rem;
-  border-radius: 8px;
-  border: 1px solid rgba(0,229,184,0.2);
-}
-.card:hover {
-  border-color: #00e5b8;
-  transform: translateY(-5px);
+.section-subtitle { text-align: center; color: var(--gray); margin-bottom: 3rem; }
+.about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; margin-top: 2rem; }
+.about-text { color: var(--gray); line-height: 1.8; }
+.about-text p { margin-bottom: 1.5rem; }
+.highlight-card {
+  background: rgba(30,58,95,0.3); padding: 1.5rem; border-radius: 12px;
+  border-left: 4px solid var(--teal); margin-bottom: 1.5rem;
   transition: all 0.3s;
 }
-.card h3 {
-  color: #00e5b8;
-  margin-bottom: 1rem;
+.highlight-card:hover { transform: translateX(10px); background: rgba(30,58,95,0.5); }
+.highlight-card h4 { color: var(--teal); margin-bottom: 0.5rem; }
+.skills-section { background: var(--navy-light); }
+.tabs { display: flex; justify-content: center; gap: 1rem; margin-bottom: 3rem; flex-wrap: wrap; }
+.tab-btn {
+  padding: 1rem 2rem; background: rgba(30,58,95,0.3);
+  border: 2px solid rgba(0,212,170,0.2); color: var(--gray);
+  border-radius: 8px; cursor: pointer; font-weight: 600;
+  transition: all 0.3s;
 }
-.contact-info {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  margin-top: 2rem;
+.tab-btn.active {
+  background: linear-gradient(135deg, var(--teal), var(--blue));
+  color: var(--white); border-color: var(--teal);
 }
-.contact-item {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  padding: 1rem;
-  background: rgba(17,34,64,0.5);
-  border-radius: 6px;
+.tab-content { display: none; }
+.tab-content.active {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
 }
-.contact-item a {
-  color: #00e5b8;
-  text-decoration: none;
+.skill-card {
+  background: rgba(30,58,95,0.3); padding: 2rem; border-radius: 12px;
+  border: 1px solid rgba(0,212,170,0.2); transition: all 0.3s;
+}
+.skill-card:hover {
+  transform: translateY(-5px); border-color: var(--teal);
+  box-shadow: 0 10px 30px rgba(0,212,170,0.2);
+}
+.skill-icon { font-size: 2.5rem; margin-bottom: 1rem; }
+.skill-name { font-size: 1.2rem; font-weight: 600; margin-bottom: 0.5rem; }
+.skill-desc { font-size: 0.9rem; color: var(--gray-dark); margin-bottom: 1rem; }
+.skill-bar {
+  background: rgba(255,255,255,0.1); height: 8px; border-radius: 4px;
+  overflow: hidden; margin-bottom: 0.5rem;
+}
+.skill-bar-fill {
+  height: 100%; background: linear-gradient(90deg, var(--teal), var(--blue));
+  border-radius: 4px; transition: width 1s ease;
+}
+.skill-pct { color: var(--teal); font-weight: 600; font-size: 0.9rem; }
+.timeline { position: relative; padding-left: 2rem; margin-top: 2rem; }
+.timeline::before {
+  content: ''; position: absolute; left: 0; top: 0; bottom: 0;
+  width: 2px; background: linear-gradient(180deg, var(--teal), rgba(0,212,170,0.1));
+}
+.timeline-item {
+  position: relative; padding: 0 0 3rem 2.5rem; margin-bottom: 2rem;
+}
+.timeline-dot {
+  position: absolute; left: -0.5rem; top: 0.3rem;
+  width: 14px; height: 14px; border-radius: 50%;
+  border: 2px solid var(--teal); background: var(--navy);
+  box-shadow: 0 0 10px rgba(0,212,170,0.5);
+}
+.timeline-company { font-size: 1.5rem; font-weight: 700; margin-bottom: 0.5rem; }
+.timeline-period {
+  display: inline-block; background: rgba(0,212,170,0.15);
+  color: var(--teal); padding: 0.3rem 0.8rem; border-radius: 20px;
+  font-size: 0.85rem; margin-bottom: 1rem;
+}
+.timeline-role { color: var(--gray-dark); margin-bottom: 1rem; font-style: italic; }
+.timeline-list { list-style: none; margin-top: 1rem; }
+.timeline-list li {
+  color: var(--gray); margin-bottom: 0.8rem; padding-left: 1.5rem;
+  position: relative; line-height: 1.6;
+}
+.timeline-list li::before {
+  content: '▹'; position: absolute; left: 0; color: var(--teal);
+}
+.projects-grid {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 2rem; margin-top: 2rem;
+}
+.project-card {
+  background: rgba(30,58,95,0.3); border-radius: 12px; overflow: hidden;
+  border: 1px solid rgba(0,212,170,0.2); transition: all 0.3s;
+}
+.project-card:hover {
+  transform: translateY(-10px); border-color: var(--teal);
+  box-shadow: 0 20px 50px rgba(0,0,0,0.4);
+}
+.project-header {
+  padding: 2rem; background: linear-gradient(135deg, rgba(30,58,95,0.5), rgba(11,25,48,0.8));
+}
+.project-icon { font-size: 3rem; margin-bottom: 1rem; }
+.project-badge {
+  display: inline-block; background: rgba(0,212,170,0.2);
+  color: var(--teal); padding: 0.3rem 0.8rem; border-radius: 4px;
+  font-size: 0.75rem; font-weight: 600; margin-bottom: 0.5rem;
+  letter-spacing: 0.5px;
+}
+.project-title { font-size: 1.5rem; color: var(--teal); margin-bottom: 0.5rem; }
+.project-body { padding: 2rem; }
+.project-body p { color: var(--gray); margin-bottom: 1.5rem; line-height: 1.8; }
+.project-tools { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.5rem; }
+.tool-tag {
+  background: rgba(0,212,170,0.1); padding: 0.4rem 0.8rem;
+  border-radius: 6px; font-size: 0.85rem; color: var(--teal);
+  border: 1px solid rgba(0,212,170,0.2);
+}
+.project-link {
+  display: inline-block; margin-top: 1rem;
+  color: var(--teal); text-decoration: none; font-weight: 600;
+  transition: all 0.3s;
+}
+.project-link:hover { transform: translateX(5px); }
+.contact-grid {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem; max-width: 800px; margin: 3rem auto 0;
+}
+.contact-card {
+  background: rgba(30,58,95,0.3); padding: 2rem; border-radius: 12px;
+  border: 1px solid rgba(0,212,170,0.2); text-align: center;
+  transition: all 0.3s;
+}
+.contact-card:hover { border-color: var(--teal); transform: translateY(-5px); }
+.contact-icon { font-size: 2.5rem; margin-bottom: 1rem; }
+.contact-card h4 { margin-bottom: 0.5rem; }
+.contact-card a { color: var(--teal); text-decoration: none; }
+.social-links {
+  display: flex; justify-content: center; gap: 1.5rem; margin: 3rem 0;
+}
+.social-link {
+  width: 50px; height: 50px; display: flex; align-items: center;
+  justify-content: center; background: rgba(30,58,95,0.3);
+  border: 2px solid rgba(0,212,170,0.2); border-radius: 50%;
+  color: var(--gray); font-size: 1.5rem; text-decoration: none;
+  transition: all 0.3s;
+}
+.social-link:hover {
+  border-color: var(--teal); color: var(--teal);
+  transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,212,170,0.3);
 }
 footer {
-  text-align: center;
-  padding: 2rem;
-  background: rgba(17,34,64,0.8);
-  border-top: 1px solid rgba(0,229,184,0.2);
+  background: rgba(30,58,95,0.3); padding: 2rem; text-align: center;
+  border-top: 1px solid rgba(0,212,170,0.2);
+}
+footer p { color: var(--gray); }
+footer a { color: var(--teal); text-decoration: none; }
+footer a:hover { text-decoration: underline; }
+@media (max-width: 768px) {
+  .hero h1 { font-size: 2.5rem; }
+  .about-grid, .stats { grid-template-columns: 1fr; }
+  .projects-grid { grid-template-columns: 1fr; }
+  .nav-links { display: none; }
 }
 </style>
 </head>
 <body>
 
 <nav>
-  <div class="container" style="display: flex; justify-content: space-between; align-items: center;">
-    <div style="font-weight: 700; color: #00e5b8;">M. Yuvaraj</div>
-    <div style="display: flex; gap: 2rem;">
-      <a href="#about" style="color: #7a93b0; text-decoration: none;">About</a>
-      <a href="#skills" style="color: #7a93b0; text-decoration: none;">Skills</a>
-      <a href="#experience" style="color: #7a93b0; text-decoration: none;">Experience</a>
-      <a href="#projects" style="color: #7a93b0; text-decoration: none;">Projects</a>
-      <a href="#contact" style="color: #7a93b0; text-decoration: none;">Contact</a>
+  <div class="container">
+    <div class="nav-content">
+      <div class="logo">M. Yuvaraj</div>
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#practice">Practice Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
     </div>
   </div>
 </nav>
 
-<section class="hero container">
-  <div>
+<section class="hero">
+  <div class="container">
     <h1>M. Yuvaraj</h1>
-    <p style="font-size: 1.5rem; margin-bottom: 1rem;">Data Analyst</p>
-    <p>Experienced Data Analyst with around 5 years of expertise in transforming raw data into strategic insights. Proficient in SQL, Python, Power BI, Tableau, and Excel, delivering data-driven solutions that enhance efficiency and support decision-making.</p>
-    <div style="margin-top: 2rem; display: flex; gap: 3rem;">
-      <div>
-        <div style="font-size: 2.5rem; font-weight: 700; color: #00e5b8;">5+</div>
-        <div style="color: #7a93b0; font-size: 0.9rem;">Years Experience</div>
+    <h2>Data Analyst</h2>
+    <p>Data Analyst with 5 years of experience in Healthcare and E-commerce analytics, specializing in Advanced SQL, Power BI (DAX, Data Modeling), Tableau, and Python for data processing and analysis. Experienced in handling 10M+ record datasets, building KPI frameworks, and developing executive dashboards to support strategic decision-making.</p>
+    <div>
+      <a href="#projects" class="btn btn-primary">View Projects</a>
+      <a href="#contact" class="btn btn-outline">Contact Me</a>
+      <a href="Yuvaraj_Resume.pdf" download class="btn btn-outline">Download Resume</a>
+    </div>
+    <div class="stats">
+      <div class="stat"><div class="stat-num">5</div><div class="stat-label">Years Experience</div></div>
+      <div class="stat"><div class="stat-num">2</div><div class="stat-label">Major Projects</div></div>
+      <div class="stat"><div class="stat-num">8+</div><div class="stat-label">Core Tools</div></div>
+      <div class="stat"><div class="stat-num">15+</div><div class="stat-label">Dashboards Built</div></div>
+    </div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="container">
+    <h2 class="section-title">About Me</h2>
+    <p class="section-subtitle">Passionate about transforming data into strategic insights</p>
+    <div class="about-grid">
+      <div class="about-text">
+        <p>Data Analyst with 5 years of experience specializing in Healthcare and E-commerce analytics. Expert in handling large-scale datasets (10M+ records) and building comprehensive KPI frameworks that drive strategic decision-making.</p>
+        <p>Strong expertise in healthcare claims analytics, statistical analysis, and business performance optimization. Proven track record of delivering actionable insights from complex datasets through advanced SQL, Power BI, Tableau, and Python.</p>
+        <p>Experienced in developing executive dashboards, implementing ETL pipelines, and ensuring HIPAA compliance for healthcare data. Focused on supporting strategic decision-making through data-driven solutions.</p>
       </div>
       <div>
-        <div style="font-size: 2.5rem; font-weight: 700; color: #00e5b8;">100+</div>
-        <div style="color: #7a93b0; font-size: 0.9rem;">Dashboards Built</div>
-      </div>
-      <div>
-        <div style="font-size: 2.5rem; font-weight: 700; color: #00e5b8;">10+</div>
-        <div style="color: #7a93b0; font-size: 0.9rem;">Tools Mastered</div>
+        <div class="highlight-card">
+          <h4>🎓 Education</h4>
+          <p>B.E – Computer Science & Engineering<br>Ganadipathy Tulsi's Jain Engineering College, Anna University<br>2013 – 2017</p>
+        </div>
+        <div class="highlight-card">
+          <h4>🏥 Healthcare Analytics</h4>
+          <p>10M+ claims processed • HIPAA compliance • Fraud detection • Cost containment strategies</p>
+        </div>
+        <div class="highlight-card">
+          <h4>🛒 E-Commerce Analytics</h4>
+          <p>5M+ transactions analyzed • Customer behavior insights • Inventory optimization • A/B testing</p>
+        </div>
+        <div class="highlight-card">
+          <h4>📊 Technical Expertise</h4>
+          <p>Star schema modeling • DAX measure libraries • ETL pipelines • Statistical analysis</p>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
-<section id="about" class="section container">
-  <h2 class="section-title">About Me</h2>
-  <p style="color: #7a93b0; max-width: 800px;">I am a highly passionate Data Analyst who thrives on seeking new challenges. With a B.E in Computer Science Engineering from Ganadipathy Tulsi's Engineering College (2013-2017), I specialize in healthcare and e-commerce analytics, claims data analysis, KPI reporting, and executive dashboards.</p>
-</section>
+<section id="skills" class="skills-section">
+  <div class="container">
+    <h2 class="section-title">Technical Skills</h2>
+    <p class="section-subtitle">Comprehensive expertise across analytics tools and technologies</p>
+    
+    <div class="tabs">
+      <button class="tab-btn active" onclick="switchTab(0)">📊 Data Visualization</button>
+      <button class="tab-btn" onclick="switchTab(1)">💻 Programming & Databases</button>
+      <button class="tab-btn" onclick="switchTab(2)">📈 Analytics & BI</button>
+    </div>
 
-<section id="skills" class="section container">
-  <h2 class="section-title">Technical Skills</h2>
-  <div class="skills-grid">
-    <div class="card">
-      <h3>📊 Power BI</h3>
-      <p style="color: #7a93b0;">DAX, Power Query, Dataflows, HIPAA reporting</p>
-    </div>
-    <div class="card">
-      <h3>📈 Tableau</h3>
-      <p style="color: #7a93b0;">LOD expressions, Tableau Prep, calculated fields</p>
-    </div>
-    <div class="card">
-      <h3>🗄️ MySQL</h3>
-      <p style="color: #7a93b0;">Joins, Subqueries, CTEs, data extraction</p>
-    </div>
-    <div class="card">
-      <h3>🐍 Python</h3>
-      <p style="color: #7a93b0;">Pandas, NumPy, Matplotlib, Seaborn</p>
-    </div>
-    <div class="card">
-      <h3>📑 Excel</h3>
-      <p style="color: #7a93b0;">Pivot Tables, VLOOKUP, Advanced Analytics</p>
-    </div>
-    <div class="card">
-      <h3>📊 Statistics</h3>
-      <p style="color: #7a93b0;">Hypothesis Testing, Regression Analysis</p>
-    </div>
-  </div>
-</section>
-
-<section id="experience" class="section container">
-  <h2 class="section-title">Professional Experience</h2>
-  
-  <div style="margin-bottom: 3rem;">
-    <h3 style="color: #00e5b8; font-size: 1.5rem; margin-bottom: 0.5rem;">EBOT Technosoft</h3>
-    <p style="color: #7a93b0; margin-bottom: 1rem;">Data Analyst • 2021 - 2026</p>
-    <ul style="color: #7a93b0; list-style-position: inside; line-height: 1.8;">
-      <li>Designed end-to-end Power BI solutions integrating claims, provider, retail, and member data</li>
-      <li>Implemented DAX measures for KPI tracking and executive reporting</li>
-      <li>Analyzed medical and pharmacy claims data to identify fraud patterns</li>
-      <li>Ensured HIPAA compliance and CMS reporting standards</li>
-      <li>Conducted statistical analysis to evaluate healthcare outcomes</li>
-    </ul>
-  </div>
-
-  <div>
-    <h3 style="color: #00e5b8; font-size: 1.5rem; margin-bottom: 0.5rem;">Burst Digital</h3>
-    <p style="color: #7a93b0; margin-bottom: 1rem;">Data Analyst • E-Commerce Analytics</p>
-    <ul style="color: #7a93b0; list-style-position: inside; line-height: 1.8;">
-      <li>Developed Tableau dashboards integrating retail and claims systems</li>
-      <li>Created LOD expressions and calculated fields for advanced analytics</li>
-      <li>Built KPI dashboards for turnaround time and inventory tracking</li>
-      <li>Supported marketing and supply chain optimization using insights</li>
-    </ul>
-  </div>
-</section>
-
-<section id="projects" class="section container">
-  <h2 class="section-title">Featured Projects</h2>
-  <div class="projects-grid">
-    <div class="card">
-      <h3>🏥 iMobiSoft - Digital Health System</h3>
-      <p style="color: #7a93b0; margin-bottom: 1rem;">Advanced healthcare analytics platform designed to modernize care delivery and reduce operational inefficiencies.</p>
-      <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
-        <span style="background: rgba(0,229,184,0.1); padding: 0.25rem 0.75rem; border-radius: 4px; font-size: 0.85rem; color: #00e5b8;">Power BI</span>
-        <span style="background: rgba(0,229,184,0.1); padding: 0.25rem 0.75rem; border-radius: 4px; font-size: 0.85rem; color: #00e5b8;">DAX</span>
-        <span style="background: rgba(0,229,184,0.1); padding: 0.25rem 0.75rem; border-radius: 4px; font-size: 0.85rem; color: #00e5b8;">SQL</span>
-        <span style="background: rgba(0,229,184,0.1); padding: 0.25rem 0.75rem; border-radius: 4px; font-size: 0.85rem; color: #00e5b8;">HIPAA</span>
+    <div class="tab-content active" id="tab0">
+      <div class="skill-card">
+        <div class="skill-icon">📊</div>
+        <div class="skill-name">Power BI</div>
+        <div class="skill-desc">DAX, Data Modeling, Star Schema, Power Query, Dataflows, Power BI Service, Gateway</div>
+        <div class="skill-bar"><div class="skill-bar-fill" style="width: 95%"></div></div>
+        <div class="skill-pct">Expert • 95%</div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-icon">📈</div>
+        <div class="skill-name">Tableau</div>
+        <div class="skill-desc">LOD Expressions, Parameters, Calculated Fields, Dashboard Development</div>
+        <div class="skill-bar"><div class="skill-bar-fill" style="width: 90%"></div></div>
+        <div class="skill-pct">Expert • 90%</div>
       </div>
     </div>
-    <div class="card">
-      <h3>🛒 Burst Digital - E-Commerce Analytics</h3>
-      <p style="color: #7a93b0; margin-bottom: 1rem;">Analytics solution delivering insights for product performance, inventory optimization, and customer engagement.</p>
-      <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
-        <span style="background: rgba(0,229,184,0.1); padding: 0.25rem 0.75rem; border-radius: 4px; font-size: 0.85rem; color: #00e5b8;">Tableau</span>
-        <span style="background: rgba(0,229,184,0.1); padding: 0.25rem 0.75rem; border-radius: 4px; font-size: 0.85rem; color: #00e5b8;">LOD</span>
-        <span style="background: rgba(0,229,184,0.1); padding: 0.25rem 0.75rem; border-radius: 4px; font-size: 0.85rem; color: #00e5b8;">Python</span>
+
+    <div class="tab-content" id="tab1">
+      <div class="skill-card">
+        <div class="skill-icon">🐍</div>
+        <div class="skill-name">Python</div>
+        <div class="skill-desc">Pandas, NumPy, Data Cleaning, ETL, Data Validation Scripts</div>
+        <div class="skill-bar"><div class="skill-bar-fill" style="width: 88%"></div></div>
+        <div class="skill-pct">Advanced • 88%</div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-icon">🗄️</div>
+        <div class="skill-name">Advanced SQL</div>
+        <div class="skill-desc">Joins, CTEs, Subqueries, Window Functions, Query Optimization</div>
+        <div class="skill-bar"><div class="skill-bar-fill" style="width: 93%"></div></div>
+        <div class="skill-pct">Expert • 93%</div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-icon">💾</div>
+        <div class="skill-name">MySQL & RDBMS</div>
+        <div class="skill-desc">Database Management, Relational Database Systems</div>
+        <div class="skill-bar"><div class="skill-bar-fill" style="width: 90%"></div></div>
+        <div class="skill-pct">Expert • 90%</div>
+      </div>
+    </div>
+
+    <div class="tab-content" id="tab2">
+      <div class="skill-card">
+        <div class="skill-icon">📊</div>
+        <div class="skill-name">Statistical Analysis</div>
+        <div class="skill-desc">Hypothesis Testing, A/B Testing, Regression Analysis</div>
+        <div class="skill-bar"><div class="skill-bar-fill" style="width: 87%"></div></div>
+        <div class="skill-pct">Advanced • 87%</div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-icon">🏗️</div>
+        <div class="skill-name">Data Warehousing & ETL</div>
+        <div class="skill-desc">ETL Pipelines, Large Dataset Handling (10M+ Records)</div>
+        <div class="skill-bar"><div class="skill-bar-fill" style="width: 85%"></div></div>
+        <div class="skill-pct">Advanced • 85%</div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-icon">📈</div>
+        <div class="skill-name">Business Intelligence</div>
+        <div class="skill-desc">KPI Reporting, Executive Dashboarding, Business Performance Optimization</div>
+        <div class="skill-bar"><div class="skill-bar-fill" style="width: 92%"></div></div>
+        <div class="skill-pct">Expert • 92%</div>
       </div>
     </div>
   </div>
 </section>
 
-<section id="contact" class="section container">
-  <h2 class="section-title">Contact</h2>
-  <div class="contact-info">
-    <div class="contact-item">
-      <span>📱</span>
-      <div>
-        <div style="font-size: 0.85rem; color: #7a93b0;">Phone</div>
-        <a href="tel:9342131036">9342131036</a>
+<section id="experience">
+  <div class="container">
+    <h2 class="section-title">Professional Experience</h2>
+    <p class="section-subtitle">EBOT Technosoft Pvt. Ltd. | March 2021 – Present</p>
+    
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <h3 class="timeline-company">iMobiSoft (Current Project)</h3>
+        <div class="timeline-period">September 2023 – Present</div>
+        <div class="timeline-role">Healthcare Analytics</div>
+        <ul class="timeline-list">
+          <li>Designed and optimized star-schema Power BI data models integrating claims systems, provider directories, eligibility files, and member databases</li>
+          <li>Processed and validated 10M+ healthcare claims records ensuring data accuracy and HIPAA compliance</li>
+          <li>Developed 15+ interactive Power BI dashboards tracking Claims TAT, denial rates, readmissions, provider performance, and cost trends</li>
+          <li>Built reusable DAX measure libraries for YoY, MoM, rolling averages, and benchmark comparisons</li>
+          <li>Implemented SQL and Python-based data validation frameworks to detect anomalies and duplicates</li>
+          <li>Performed hypothesis testing and regression analysis to evaluate healthcare program effectiveness</li>
+          <li>Identified high-cost procedures and fraud indicators supporting cost containment strategies</li>
+          <li>Designed and implemented recurring reports using Power BI Service, reducing manual reporting effort</li>
+        </ul>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <h3 class="timeline-company">Burst Digital (Previous Project)</h3>
+        <div class="timeline-period">March 2021 – August 2023</div>
+        <div class="timeline-role">E-Commerce Analytics</div>
+        <ul class="timeline-list">
+          <li>Designed end-to-end Tableau dashboards integrating sales, customer behavior, subscription, and inventory datasets</li>
+          <li>Performed advanced SQL querying (CTEs, window functions, subqueries) on 5M+ transactional records</li>
+          <li>Built KPI frameworks for revenue trends, customer retention, subscription performance, and product profitability</li>
+          <li>Developed advanced Tableau calculations using LOD expressions and parameters</li>
+          <li>Conducted cohort analysis and A/B testing to evaluate marketing campaign effectiveness</li>
+          <li>Identified underperforming SKUs enabling inventory optimization strategies</li>
+          <li>Designed and implemented ETL workflows using Python (Pandas) and Tableau Prep</li>
+          <li>Collaborated with marketing and supply chain teams to drive data-backed decision making</li>
+        </ul>
       </div>
     </div>
-    <div class="contact-item">
-      <span>📧</span>
-      <div>
-        <div style="font-size: 0.85rem; color: #7a93b0;">Email</div>
-        <a href="mailto:yuvarajkmurugan@gmail.com">yuvarajkmurugan@gmail.com</a>
+  </div>
+</section>
+
+<section id="projects">
+  <div class="container">
+    <h2 class="section-title">Professional Projects</h2>
+    <p class="section-subtitle">Real-world analytics solutions at EBOT Technosoft</p>
+    
+    <div class="projects-grid">
+      <div class="project-card">
+        <div class="project-header">
+          <div class="project-icon">🏥</div>
+          <div class="project-badge">CURRENT PROJECT</div>
+          <h3 class="project-title">iMobiSoft - Healthcare Analytics</h3>
+        </div>
+        <div class="project-body">
+          <p>Advanced healthcare analytics platform processing 10M+ claims records. Designed star-schema data models, built 15+ interactive Power BI dashboards, and implemented comprehensive data validation frameworks ensuring HIPAA compliance.</p>
+          <div class="project-tools">
+            <span class="tool-tag">Power BI</span>
+            <span class="tool-tag">DAX</span>
+            <span class="tool-tag">SQL</span>
+            <span class="tool-tag">Python</span>
+            <span class="tool-tag">Star Schema</span>
+            <span class="tool-tag">HIPAA</span>
+          </div>
+          <p style="font-size: 0.9rem; color: var(--gray);">
+            <strong>Key Achievements:</strong><br>
+            • Processed 10M+ healthcare claims with 100% data accuracy<br>
+            • Built reusable DAX measure libraries for enterprise reporting<br>
+            • Identified fraud indicators supporting cost containment<br>
+            • Reduced manual reporting effort through automation
+          </p>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-header">
+          <div class="project-icon">🛒</div>
+          <div class="project-badge">PREVIOUS PROJECT</div>
+          <h3 class="project-title">Burst Digital - E-Commerce Analytics</h3>
+        </div>
+        <div class="project-body">
+          <p>Comprehensive e-commerce analytics platform analyzing 5M+ transactions. Built end-to-end Tableau dashboards, KPI frameworks, and ETL workflows driving data-backed decision-making for marketing and supply chain teams.</p>
+          <div class="project-tools">
+            <span class="tool-tag">Tableau</span>
+            <span class="tool-tag">LOD Expressions</span>
+            <span class="tool-tag">SQL</span>
+            <span class="tool-tag">Python (Pandas)</span>
+            <span class="tool-tag">Tableau Prep</span>
+            <span class="tool-tag">A/B Testing</span>
+          </div>
+          <p style="font-size: 0.9rem; color: var(--gray);">
+            <strong>Key Achievements:</strong><br>
+            • Analyzed 5M+ transactions for customer behavior insights<br>
+            • Conducted cohort analysis and A/B testing for campaigns<br>
+            • Identified underperforming SKUs for inventory optimization<br>
+            • Implemented ETL workflows for automated reporting
+          </p>
+        </div>
       </div>
     </div>
-    <div class="contact-item">
-      <span>📍</span>
-      <div>
-        <div style="font-size: 0.85rem; color: #7a93b0;">Location</div>
-        <div style="color: #f0f6ff;">Chennai, Tamil Nadu, India</div>
+  </div>
+</section>
+
+<section id="practice" style="background: var(--navy-light);">
+  <div class="container">
+    <h2 class="section-title">Practice Projects & Learning</h2>
+    <p class="section-subtitle">Hands-on practice and skill development projects</p>
+    
+    <div class="projects-grid">
+      <div class="project-card">
+        <div class="project-header">
+          <div class="project-icon">📊</div>
+          <div class="project-badge">GITHUB REPOSITORY</div>
+          <h3 class="project-title">Data Analytics Practice Projects</h3>
+        </div>
+        <div class="project-body">
+          <p>Collection of practice projects demonstrating SQL, Python, Power BI, and Tableau skills through real-world scenarios and datasets. Includes data cleaning, transformation, visualization, and analysis exercises.</p>
+          <div class="project-tools">
+            <span class="tool-tag">SQL</span>
+            <span class="tool-tag">Python</span>
+            <span class="tool-tag">Power BI</span>
+            <span class="tool-tag">Tableau</span>
+            <span class="tool-tag">Data Analysis</span>
+          </div>
+          <a href="https://github.com/yuvaraj-murugan" target="_blank" class="project-link">→ View on GitHub</a>
+        </div>
       </div>
     </div>
-    <div class="contact-item">
-      <span>💼</span>
-      <div>
-        <div style="font-size: 0.85rem; color: #7a93b0;">LinkedIn</div>
-        <a href="https://linkedin.com/in/yuvaraj-murugan" target="_blank">linkedin.com/in/yuvaraj-murugan</a>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="container">
+    <h2 class="section-title">Get In Touch</h2>
+    <p class="section-subtitle">Let's discuss how data analytics can transform your business</p>
+    
+    <div class="contact-grid">
+      <div class="contact-card">
+        <div class="contact-icon">📱</div>
+        <h4>Phone</h4>
+        <p><a href="tel:+919342131036">+91-9342131036</a></p>
+      </div>
+      <div class="contact-card">
+        <div class="contact-icon">📧</div>
+        <h4>Email</h4>
+        <p><a href="/cdn-cgi/l/email-protection#39404c4f584b585352544c4b4c5e5857795e54585055175a5654"><span class="__cf_email__" data-cfemail="93eae6e5f2e1f2f9f8fee6e1e6f4f2fdd3f4fef2faffbdf0fcfe">[email&#160;protected]</span></a></p>
+      </div>
+      <div class="contact-card">
+        <div class="contact-icon">📍</div>
+        <h4>Location</h4>
+        <p>Chennai, Tamil Nadu, India</p>
       </div>
     </div>
-    <div class="contact-item">
-      <span>🐙</span>
-      <div>
-        <div style="font-size: 0.85rem; color: #7a93b0;">GitHub</div>
-        <a href="https://github.com/yuvaraj-murugan" target="_blank">github.com/yuvaraj-murugan</a>
-      </div>
+
+    <div class="social-links">
+      <a href="https://www.linkedin.com/in/yuvaraj-m-da" target="_blank" class="social-link" title="LinkedIn">
+        <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+      </a>
+      <a href="https://github.com/yuvaraj-murugan" target="_blank" class="social-link" title="GitHub">
+        <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+      </a>
+      <a href="mailto:yuvarajkmurugan@gmail.com" class="social-link" title="Email">
+        <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+      </a>
+      <a href="Yuvaraj_Resume.pdf" download class="social-link" title="Resume">
+        <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="12" y1="18" x2="12" y2="12"></line><polyline points="9 15 12 18 15 15"></polyline></svg>
+      </a>
     </div>
   </div>
 </section>
 
 <footer>
-  <p style="color: #7a93b0;">© 2026 M. Yuvaraj | Data Analyst Portfolio</p>
+  <div class="container">
+    <p>© 2026 M. Yuvaraj | Data Analyst Portfolio</p>
+    <p style="margin-top: 0.5rem; font-size: 0.9rem;">
+      Portfolio: <a href="https://yuvaraj-murugan.github.io/Yuvaraj-Portfolio/" target="_blank">yuvaraj-murugan.github.io/Yuvaraj-Portfolio</a>
+    </p>
+    <p style="margin-top: 0.5rem; font-size: 0.85rem; color: var(--gray-dark);">
+      Built with passion for data-driven excellence
+    </p>
+  </div>
 </footer>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+function switchTab(index) {
+  document.querySelectorAll('.tab-btn').forEach((btn, i) => {
+    btn.classList.toggle('active', i === index);
+  });
+  document.querySelectorAll('.tab-content').forEach((content, i) => {
+    content.classList.toggle('active', i === index);
+  });
+}
+
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-  anchor.addEventListener('click', function(e) {
+  anchor.addEventListener('click', function (e) {
     e.preventDefault();
     const target = document.querySelector(this.getAttribute('href'));
-    if(target) {
-      target.scrollIntoView({ behavior: 'smooth' });
-    }
-  });
-});
-</script>
-
-</body>
-</html>
+    
