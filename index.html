@@ -75,6 +75,56 @@
         opacity: 1;
       }
 
+      /* Card hover effect for About and Skills sections */
+      .card-hover {
+        position: relative;
+        background: rgba(255, 255, 255, 0.06);
+        border: 1px solid rgba(0, 212, 170, 0.18);
+        border-radius: 1.25rem;
+        overflow: hidden;
+        backdrop-filter: blur(14px);
+        transition: transform 0.25s ease, box-shadow 0.25s ease;
+      }
+
+      .card-hover:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 20px 40px rgba(0, 212, 170, 0.25);
+      }
+
+      /* Contact cards hover effect */
+      .contact-card {
+        position: relative;
+        background: rgba(255, 255, 255, 0.06);
+        border: 1px solid rgba(0, 212, 170, 0.18);
+        border-radius: 1.25rem;
+        overflow: hidden;
+        backdrop-filter: blur(14px);
+        transition: transform 0.25s ease, box-shadow 0.25s ease;
+      }
+
+      .contact-card:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 20px 40px rgba(0, 212, 170, 0.25);
+      }
+
+      /* Timeline item hover effect */
+      .timeline-content:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 30px 60px rgba(0, 0, 0, 0.2), 0 0 0 1px rgba(0, 212, 170, 0.3);
+        border-color: rgba(0, 212, 170, 0.4);
+      }
+
+      /* Social media icon hover effect */
+      .social-icon {
+        transition: transform 0.25s ease, box-shadow 0.25s ease, background-color 0.25s ease;
+      }
+
+      .social-icon:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 15px 35px rgba(0, 212, 170, 0.3);
+        background-color: rgba(0, 212, 170, 0.15);
+      }
+
       .glass-btn {
         background: rgba(255, 255, 255, 0.1);
         border: 1px solid rgba(255, 255, 255, 0.18);
@@ -98,6 +148,146 @@
           grid-template-columns: repeat(4, minmax(0, 1fr));
         }
       }
+
+      /* Timeline styles */
+      .timeline-container {
+        position: relative;
+        max-width: none;
+        margin: 0;
+        padding-left: 60px;
+      }
+
+      .timeline-container::before {
+        content: '';
+        position: absolute;
+        left: 30px;
+        top: 0;
+        bottom: 0;
+        width: 3px;
+        background: linear-gradient(180deg, #00d4aa 0%, #4a90e2 50%, #00d4aa 100%);
+        border-radius: 2px;
+        box-shadow: 0 0 20px rgba(0, 212, 170, 0.3);
+      }
+
+      .timeline-item {
+        position: relative;
+        margin-bottom: 60px;
+        opacity: 0;
+        animation: fadeInUp 0.8s ease-out forwards;
+      }
+
+      .timeline-item:nth-child(1) { animation-delay: 0.2s; }
+      .timeline-item:nth-child(2) { animation-delay: 0.4s; }
+
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .timeline-dot {
+        position: absolute;
+        left: -60px;
+        top: 30px;
+        width: 60px;
+        height: 60px;
+        background: none;
+        border-radius: 50%;
+        border: 4px solid rgba(255, 255, 255, 0.1);
+        box-shadow: 0 0 0 6px rgba(0, 212, 170, 0.2);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-size: 24px;
+        z-index: 2;
+      }
+
+      .timeline-content {
+        background: linear-gradient(135deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.04));
+        border: 1px solid rgba(0, 212, 170, 0.2);
+        border-radius: 20px;
+        padding: 30px;
+        backdrop-filter: blur(20px);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1), 0 0 0 1px rgba(0, 212, 170, 0.1);
+        transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .timeline-content::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 4px;
+        background: linear-gradient(90deg, #00d4aa, #4a90e2);
+        border-radius: 20px 20px 0 0;
+      }
+
+      .timeline-content:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 30px 60px rgba(0, 0, 0, 0.2), 0 0 0 1px rgba(0, 212, 170, 0.3);
+        border-color: rgba(0, 212, 170, 0.4);
+      }
+
+      .timeline-content h3 {
+        font-size: 1.5rem;
+        font-weight: 700;
+        background: linear-gradient(135deg, #ffffff, #00d4aa);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        margin-bottom: 8px;
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
+
+      .timeline-content h4 {
+        font-size: 1.25rem;
+        font-weight: 600;
+        color: #00d4aa;
+        margin-bottom: 4px;
+      }
+
+      .timeline-content .date {
+        color: rgba(255, 255, 255, 0.6);
+        font-size: 0.9rem;
+        margin-bottom: 16px;
+        font-weight: 500;
+      }
+
+      .timeline-content p {
+        color: rgba(255, 255, 255, 0.8);
+        line-height: 1.6;
+        margin-bottom: 20px;
+      }
+
+      .timeline-content ul {
+        list-style: none;
+        padding: 0;
+      }
+
+      .timeline-content li {
+        color: rgba(255, 255, 255, 0.75);
+        margin-bottom: 8px;
+        padding-left: 20px;
+        position: relative;
+        line-height: 1.5;
+      }
+
+      .timeline-content li::before {
+        content: '▹';
+        position: absolute;
+        left: 0;
+        color: #00d4aa;
+        font-weight: bold;
+      }
     </style>
   </head>
 
@@ -105,7 +295,7 @@
     <header class="sticky top-0 z-40 border-b border-white/10 bg-navy/70 backdrop-blur">
       <div class="mx-auto flex max-w-6xl items-center justify-between px-4 py-4">
         <a href="#hero" class="flex items-center gap-2 text-lg font-semibold text-teal">
-          <span class="inline-flex h-10 w-10 items-center justify-center rounded-2xl bg-gradient-to-br from-teal to-brand-blue text-lg font-bold shadow-glow">
+          <span class="inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br from-teal to-brand-blue text-lg font-bold shadow-glow">
             Y
           </span>
           <span class="tracking-tight">Yuvaraj</span>
@@ -114,7 +304,7 @@
         <nav class="hidden items-center gap-6 text-sm font-medium text-white/80 md:flex">
           <a class="hover:text-white" href="#about">About</a>
           <a class="hover:text-white" href="#skills">Skills</a>
-          <a class="hover:text-white" href="#experience">Experience</a>
+          <a class="hover:text-white" href="#experience">Professional Experience</a>
           <a class="hover:text-white" href="#projects">Projects</a>
           <a class="hover:text-white" href="#contact">Contact</a>
         </nav>
@@ -132,7 +322,7 @@
         <div class="mx-auto flex max-w-6xl flex-col gap-1 px-4 py-4 text-sm font-medium">
           <a class="rounded-xl px-3 py-2 hover:bg-white/10" href="#about">About</a>
           <a class="rounded-xl px-3 py-2 hover:bg-white/10" href="#skills">Skills</a>
-          <a class="rounded-xl px-3 py-2 hover:bg-white/10" href="#experience">Experience</a>
+          <a class="rounded-xl px-3 py-2 hover:bg-white/10" href="#experience">Professional Experience</a>
           <a class="rounded-xl px-3 py-2 hover:bg-white/10" href="#projects">Projects</a>
           <a class="rounded-xl px-3 py-2 hover:bg-white/10" href="#contact">Contact</a>
         </div>
@@ -234,19 +424,54 @@
 
       <section id="about" class="relative border-t border-white/10 py-20">
         <div class="mx-auto max-w-6xl px-4">
-          <div class="flex flex-col gap-8 lg:flex-row lg:items-start">
-            <div class="lg:basis-7/12">
-              <h2 class="text-3xl font-bold tracking-tight text-white sm:text-4xl">
-                About Me
-              </h2>
-              <p class="mt-3 max-w-3xl text-base text-white/70 sm:text-lg">
-                I’m a data analyst with a passion for transforming complex datasets into decision-ready insights.
-                My background in healthcare and e-commerce analytics means I’m comfortable with large-scale data
-                (10M+ rows), strict compliance requirements, and delivering dashboards that drive business outcomes.
-              </p>
+          <div class="" style="text-align: right;display: flex;flex-direction: column;align-items: flex-end;">
+            <h2 class="text-3xl font-bold tracking-tight text-white sm:text-4xl">
+              About Me
+            </h2>
+            <p class="mt-3 max-w-3xl text-base text-white/70 sm:text-lg">
+              I'm a data analyst with a passion for transforming complex datasets into decision-ready insights.
+              My background in healthcare and e-commerce analytics means I'm comfortable with large-scale data
+              (10M+ rows), strict compliance requirements, and delivering dashboards that drive business outcomes.
+            </p>
+          </div>
 
-              <div class="mt-10 grid gap-6 md:grid-cols-2">
-                <div class="rounded-2xl bg-white/5 p-6 shadow-glow">
+          <div class="flex flex-col gap-8">
+            <!-- Row 1: Image First, then Cards -->
+            <div class="grid gap-8 lg:grid-cols-3" style="align-items: end;">
+              <!-- Image Column: First -->
+              <div class="flex items-center justify-center">
+                <div class="rounded-2xl border border-white/10 bg-white/5 p-8 shadow-glow">
+                  <div class="h-80 w-64 rounded-xl bg-gradient-to-br from-teal/30 to-brand-blue/20 flex items-center justify-center text-white/50">
+                    <span class="text-center h-full w-full flex items-center justify-center">
+                      <img
+                        src="yuvaraj.jpg"
+                        alt="Yuvaraj's Profile Picture"
+                        class="h-full w-full border-4 border-white/20 object-cover"
+                    </span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Right Column: 2 Cards (now in middle position) -->
+              <div class="flex flex-col gap-6">
+                <div class="card-hover p-6">
+                  <h3 class="text-lg font-semibold text-white">🛒 E-Commerce Analytics</h3>
+                  <p class="mt-2 text-sm text-white/70">
+                    Transaction analytics, cohort analysis, A/B testing, SKU optimization, and marketing attribution.
+                  </p>
+                </div>
+
+                <div class="card-hover p-6">
+                  <h3 class="text-lg font-semibold text-white">📊 Technical Expertise</h3>
+                  <p class="mt-2 text-sm text-white/70">
+                    SQL, DAX, Power BI, Tableau, ETL pipelines, data modeling, statistical analysis, and dashboarding.
+                  </p>
+                </div>
+              </div>
+
+              <!-- Left Column: 2 Cards (now on the right) -->
+              <div class="flex flex-col gap-6">
+                <div class="card-hover p-6">
                   <h3 class="text-lg font-semibold text-white">🎓 Education</h3>
                   <p class="mt-2 text-sm text-white/70">
                     B.E. in Computer Science &amp; Engineering — Anna University
@@ -254,46 +479,14 @@
                   </p>
                 </div>
 
-                <div class="rounded-2xl bg-white/5 p-6 shadow-glow">
+                <div class="card-hover p-6">
                   <h3 class="text-lg font-semibold text-white">🛡️ Healthcare Analytics</h3>
                   <p class="mt-2 text-sm text-white/70">
                     HIPAA-compliant pipelines, fraud detection, claims analytics, trend forecasting, and performance KPIs.
                   </p>
                 </div>
-
-                <div class="rounded-2xl bg-white/5 p-6 shadow-glow">
-                  <h3 class="text-lg font-semibold text-white">🛒 E‑Commerce Analytics</h3>
-                  <p class="mt-2 text-sm text-white/70">
-                    Transaction analytics, cohort analysis, A/B testing, SKU optimization, and marketing attribution.
-                  </p>
-                </div>
-
-                <div class="rounded-2xl bg-white/5 p-6 shadow-glow">
-                  <h3 class="text-lg font-semibold text-white">📊 Technical Expertise</h3>
-                  <p class="mt-2 text-sm text-white/70">
-                    SQL, DAX, Power BI, Tableau, ETL pipelines, data modeling, statistical analysis, and dashboarding.
-                  </p>
-                </div>
               </div>
             </div>
-
-            <aside class="lg:basis-5/12">
-              <h3 class="text-xl font-semibold text-white">Quick Facts</h3>
-              <div class="mt-6 grid gap-6">
-                <div class="rounded-2xl border border-white/10 bg-white/5 p-6 shadow-glow">
-                  <h4 class="text-sm font-semibold text-white/80">Work Style</h4>
-                  <p class="mt-3 text-sm text-white/70">
-                    Collaborative, data-led, and outcome-focused. I build tools that stakeholders use daily.
-                  </p>
-                </div>
-                <div class="rounded-2xl border border-white/10 bg-white/5 p-6 shadow-glow">
-                  <h4 class="text-sm font-semibold text-white/80">Tools I Use</h4>
-                  <p class="mt-3 text-sm text-white/70">
-                    Power BI, Tableau, SQL, Python (Pandas), Excel, Git, and cloud data platforms.
-                  </p>
-                </div>
-              </div>
-            </aside>
           </div>
         </div>
       </section>
@@ -333,7 +526,7 @@
           <div class="mt-10 space-y-10">
             <div class="skill-panel" data-panel="visual">
               <div class="grid gap-6 lg:grid-cols-3">
-                <div class="rounded-2xl bg-white/5 p-6 shadow-glow">
+                <div class="card-hover p-6">
                   <h3 class="text-lg font-semibold text-white">Power BI</h3>
                   <p class="mt-2 text-sm text-white/70">DAX, data modeling, Power Query, service automation.</p>
                   <div class="mt-5 w-full rounded-full bg-white/10">
@@ -341,7 +534,7 @@
                   </div>
                   <p class="mt-2 text-xs font-semibold text-white/60">Expert • 92%</p>
                 </div>
-                <div class="rounded-2xl bg-white/5 p-6 shadow-glow">
+                <div class="card-hover p-6">
                   <h3 class="text-lg font-semibold text-white">Tableau</h3>
                   <p class="mt-2 text-sm text-white/70">LOD expressions, parameters, dashboard performance.</p>
                   <div class="mt-5 w-full rounded-full bg-white/10">
@@ -349,20 +542,12 @@
                   </div>
                   <p class="mt-2 text-xs font-semibold text-white/60">Expert • 88%</p>
                 </div>
-                <div class="rounded-2xl bg-white/5 p-6 shadow-glow">
-                  <h3 class="text-lg font-semibold text-white">Looker Studio</h3>
-                  <p class="mt-2 text-sm text-white/70">Cloud dashboards with connected data sources.</p>
-                  <div class="mt-5 w-full rounded-full bg-white/10">
-                    <div class="h-2 w-[80%] rounded-full bg-gradient-to-r from-teal to-brand-blue"></div>
-                  </div>
-                  <p class="mt-2 text-xs font-semibold text-white/60">Advanced • 80%</p>
-                </div>
               </div>
             </div>
 
             <div class="skill-panel hidden" data-panel="code">
               <div class="grid gap-6 lg:grid-cols-3">
-                <div class="rounded-2xl bg-white/5 p-6 shadow-glow">
+                <div class="card-hover p-6">
                   <h3 class="text-lg font-semibold text-white">Python</h3>
                   <p class="mt-2 text-sm text-white/70">Pandas, NumPy, ETL scripts, validation tooling.</p>
                   <div class="mt-5 w-full rounded-full bg-white/10">
@@ -370,7 +555,7 @@
                   </div>
                   <p class="mt-2 text-xs font-semibold text-white/60">Advanced • 90%</p>
                 </div>
-                <div class="rounded-2xl bg-white/5 p-6 shadow-glow">
+                <div class="card-hover p-6">
                   <h3 class="text-lg font-semibold text-white">SQL</h3>
                   <p class="mt-2 text-sm text-white/70">Window functions, CTEs, optimizations, data engineering.</p>
                   <div class="mt-5 w-full rounded-full bg-white/10">
@@ -378,20 +563,12 @@
                   </div>
                   <p class="mt-2 text-xs font-semibold text-white/60">Expert • 95%</p>
                 </div>
-                <div class="rounded-2xl bg-white/5 p-6 shadow-glow">
-                  <h3 class="text-lg font-semibold text-white">Git</h3>
-                  <p class="mt-2 text-sm text-white/70">Version control & collaboration for analytics code.</p>
-                  <div class="mt-5 w-full rounded-full bg-white/10">
-                    <div class="h-2 w-[85%] rounded-full bg-gradient-to-r from-teal to-brand-blue"></div>
-                  </div>
-                  <p class="mt-2 text-xs font-semibold text-white/60">Advanced • 85%</p>
-                </div>
               </div>
             </div>
 
             <div class="skill-panel hidden" data-panel="analysis">
               <div class="grid gap-6 lg:grid-cols-3">
-                <div class="rounded-2xl bg-white/5 p-6 shadow-glow">
+                <div class="card-hover p-6">
                   <h3 class="text-lg font-semibold text-white">Statistical Analysis</h3>
                   <p class="mt-2 text-sm text-white/70">Hypothesis testing, regression, A/B testing.</p>
                   <div class="mt-5 w-full rounded-full bg-white/10">
@@ -399,7 +576,7 @@
                   </div>
                   <p class="mt-2 text-xs font-semibold text-white/60">Advanced • 88%</p>
                 </div>
-                <div class="rounded-2xl bg-white/5 p-6 shadow-glow">
+                <div class="card-hover p-6">
                   <h3 class="text-lg font-semibold text-white">Data Modeling</h3>
                   <p class="mt-2 text-sm text-white/70">Star schema modeling, dimensional design, ETL strategy.</p>
                   <div class="mt-5 w-full rounded-full bg-white/10">
@@ -407,7 +584,7 @@
                   </div>
                   <p class="mt-2 text-xs font-semibold text-white/60">Expert • 92%</p>
                 </div>
-                <div class="rounded-2xl bg-white/5 p-6 shadow-glow">
+                <div class="card-hover p-6">
                   <h3 class="text-lg font-semibold text-white">Business Intelligence</h3>
                   <p class="mt-2 text-sm text-white/70">KPIs, executive reporting, performance tracking.</p>
                   <div class="mt-5 w-full rounded-full bg-white/10">
@@ -425,50 +602,40 @@
         <div class="mx-auto max-w-6xl px-4">
           <div class="flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between">
             <div>
-              <h2 class="text-3xl font-bold tracking-tight text-white sm:text-4xl">Experience</h2>
+              <h2 class="text-3xl font-bold tracking-tight text-white sm:text-4xl">Professional Experience</h2>
               <p class="mt-3 max-w-2xl text-base text-white/70">
                 A history of delivering analytics platforms, dashboards, and validation tooling across healthcare and e-commerce.
               </p>
             </div>
-            <div class="text-sm text-white/60">
-              <span class="font-semibold text-white">Current:</span> iMobiSoft<br />
-              <span class="font-semibold text-white">Past:</span> Burst Digital
-            </div>
           </div>
 
-          <div class="mt-12 space-y-10">
-            <div class="relative rounded-3xl border border-white/10 bg-white/5 p-8 shadow-glow">
-              <div class="absolute -left-5 top-8 h-12 w-12 rounded-2xl bg-gradient-to-br from-teal to-brand-blue text-center text-lg font-bold leading-12">
-                🏥
-              </div>
-              <div class="ml-10">
-                <h3 class="text-xl font-semibold text-white">iMobiSoft</h3>
-                <p class="mt-1 text-sm text-white/60">Healthcare Analytics • Sep 2023 – Present</p>
-                <p class="mt-4 text-sm text-white/70">
-                  Built a claims analytics platform powering executive dashboards, KPIs, and data quality tooling for 10M+ records.
-                </p>
-                <ul class="mt-4 space-y-2 text-sm text-white/70">
-                  <li class="flex gap-2"><span class="text-teal">•</span> Star-schema models in Power BI for claims, providers, and members.</li>
-                  <li class="flex gap-2"><span class="text-teal">•</span> 15+ dashboards showing TAT, denials, readmissions, and provider performance.</li>
-                  <li class="flex gap-2"><span class="text-teal">•</span> Data validation framework (SQL/Python) for duplicates, anomalies, and compliance.</li>
+          <div class="mt-12 timeline-container">
+            <div class="timeline-item">
+              <div class="timeline-dot">🚀</div>
+              <div class="timeline-content">
+                <h3>Current Project</h3>
+                <h4>iMobiSoft</h4>
+                <p class="date">Healthcare Analytics • Sep 2023 – Present</p>
+                <p>Built a claims analytics platform powering executive dashboards, KPIs, and data quality tooling for 10M+ records.</p>
+                <ul>
+                  <li>Star-schema models in Power BI for claims, providers, and members</li>
+                  <li>15+ dashboards showing TAT, denials, readmissions, and provider performance</li>
+                  <li>Data validation framework (SQL/Python) for duplicates, anomalies, and compliance</li>
                 </ul>
               </div>
             </div>
 
-            <div class="relative rounded-3xl border border-white/10 bg-white/5 p-8 shadow-glow">
-              <div class="absolute -left-5 top-8 h-12 w-12 rounded-2xl bg-gradient-to-br from-teal to-brand-blue text-center text-lg font-bold leading-12">
-                🛒
-              </div>
-              <div class="ml-10">
-                <h3 class="text-xl font-semibold text-white">Burst Digital</h3>
-                <p class="mt-1 text-sm text-white/60">E-commerce Analytics • Mar 2021 – Aug 2023</p>
-                <p class="mt-4 text-sm text-white/70">
-                  Developed end-to-end analytics solutions for marketing and supply chain using SQL, Tableau, and Python.
-                </p>
-                <ul class="mt-4 space-y-2 text-sm text-white/70">
-                  <li class="flex gap-2"><span class="text-teal">•</span> Analyzed 5M+ transactions with cohort and funnel analyses.</li>
-                  <li class="flex gap-2"><span class="text-teal">•</span> Built KPI frameworks for retention, subscription performance, and profitability.</li>
-                  <li class="flex gap-2"><span class="text-teal">•</span> Automated ETL pipelines using Python (Pandas) and Tableau Prep.</li>
+            <div class="timeline-item">
+              <div class="timeline-dot">💼</div>
+              <div class="timeline-content">
+                <h3>Previous Project</h3>
+                <h4>Burst Digital</h4>
+                <p class="date">E-commerce Analytics • Mar 2021 – Aug 2023</p>
+                <p>Developed end-to-end analytics solutions for marketing and supply chain using SQL, Tableau, and Python.</p>
+                <ul>
+                  <li>Analyzed 5M+ transactions with cohort and funnel analyses</li>
+                  <li>Built KPI frameworks for retention, subscription performance, and profitability</li>
+                  <li>Automated ETL pipelines using Python (Pandas) and Tableau Prep</li>
                 </ul>
               </div>
             </div>
@@ -485,15 +652,6 @@
                 A curated selection of analytics platforms, dashboards, and tooling built for production usage.
               </p>
             </div>
-
-            <a
-              class="glass-btn inline-flex items-center justify-center rounded-xl px-6 py-3 text-sm font-semibold text-white shadow-glow transition hover:bg-white/20"
-              href="https://github.com/itsyuvarajm"
-              target="_blank"
-              rel="noreferrer"
-            >
-              View More on GitHub
-            </a>
           </div>
 
           <div class="mt-12 bento-grid">
@@ -630,25 +788,10 @@
                 I’m always open to discussing new analytics projects, consulting opportunities, or ways to improve reporting and data strategy.
               </p>
             </div>
-
-            <div class="flex flex-wrap gap-3">
-              <a
-                class="glass-btn inline-flex items-center justify-center rounded-xl px-6 py-3 text-sm font-semibold text-white shadow-glow transition hover:bg-white/20"
-                href="mailto:yuvarajkmurugan@gmail.com"
-              >
-                Email Me
-              </a>
-              <a
-                class="glass-btn inline-flex items-center justify-center rounded-xl px-6 py-3 text-sm font-semibold text-white shadow-glow transition hover:bg-white/20"
-                href="tel:+919342131036"
-              >
-                Call Me
-              </a>
-            </div>
           </div>
 
           <div class="mt-12 grid gap-6 md:grid-cols-3">
-            <div class="rounded-2xl border border-white/10 bg-white/5 p-8 text-center shadow-glow">
+            <div class="contact-card p-8 text-center">
               <div class="mx-auto flex h-12 w-12 items-center justify-center rounded-2xl bg-teal/20 text-xl">
                 📱
               </div>
@@ -658,7 +801,7 @@
               </p>
             </div>
 
-            <div class="rounded-2xl border border-white/10 bg-white/5 p-8 text-center shadow-glow">
+            <div class="contact-card p-8 text-center">
               <div class="mx-auto flex h-12 w-12 items-center justify-center rounded-2xl bg-teal/20 text-xl">
                 📧
               </div>
@@ -668,7 +811,7 @@
               </p>
             </div>
 
-            <div class="rounded-2xl border border-white/10 bg-white/5 p-8 text-center shadow-glow">
+            <div class="contact-card p-8 text-center">
               <div class="mx-auto flex h-12 w-12 items-center justify-center rounded-2xl bg-teal/20 text-xl">
                 📍
               </div>
@@ -678,45 +821,49 @@
           </div>
 
           <div class="mt-12 flex flex-wrap justify-center gap-4">
-            <a
-              class="inline-flex h-12 w-12 items-center justify-center rounded-full border border-white/15 bg-white/5 text-white transition hover:bg-white/15"
-              href="https://www.linkedin.com/in/yuvaraj-m-da"
-              target="_blank"
-              rel="noreferrer"
-              aria-label="LinkedIn"
-            >
-              <svg class="h-6 w-6" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286z" />
-                <path d="M5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065z" />
-                <path d="M6.119 20.452H3.555V9h2.564v11.452z" />
-                <path d="M22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
-              </svg>
-            </a>
-            <a
-              class="inline-flex h-12 w-12 items-center justify-center rounded-full border border-white/15 bg-white/5 text-white transition hover:bg-white/15"
-              href="https://github.com/itsyuvarajm"
-              target="_blank"
-              rel="noreferrer"
-              aria-label="GitHub"
-            >
-              <svg class="h-6 w-6" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
-              </svg>
-            </a>
-            <a
-              class="inline-flex h-12 w-12 items-center justify-center rounded-full border border-white/15 bg-white/5 text-white transition hover:bg-white/15"
-              href="https://github.com/itsyuvarajm/Yuvaraj-Portfolio/raw/main/Yuvaraj_Resume.pdf"
-              target="_blank"
-              rel="noreferrer"
-              aria-label="Download Resume"
-            >
-              <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
-                <polyline points="14 2 14 8 20 8" />
-                <line x1="12" y1="18" x2="12" y2="12" />
-                <polyline points="9 15 12 18 15 15" />
-              </svg>
-            </a>
+            <div class="flex flex-col items-center gap-2">
+              <a
+                class="social-icon inline-flex h-12 w-12 items-center justify-center rounded-full border border-white/15 bg-white/5 text-white"
+                href="https://www.linkedin.com/in/yuvaraj-m-da"
+                target="_blank"
+                rel="noreferrer"
+                aria-label="LinkedIn"
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640" style="width: 30px;"><!--!Font Awesome Free v7.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2026 Fonticons, Inc.--><path fill="rgb(0, 119, 181)" d="M512 96L127.9 96C110.3 96 96 110.5 96 128.3L96 511.7C96 529.5 110.3 544 127.9 544L512 544C529.6 544 544 529.5 544 511.7L544 128.3C544 110.5 529.6 96 512 96zM231.4 480L165 480L165 266.2L231.5 266.2L231.5 480L231.4 480zM198.2 160C219.5 160 236.7 177.2 236.7 198.5C236.7 219.8 219.5 237 198.2 237C176.9 237 159.7 219.8 159.7 198.5C159.7 177.2 176.9 160 198.2 160zM480.3 480L413.9 480L413.9 376C413.9 351.2 413.4 319.3 379.4 319.3C344.8 319.3 339.5 346.3 339.5 374.2L339.5 480L273.1 480L273.1 266.2L336.8 266.2L336.8 295.4L337.7 295.4C346.6 278.6 368.3 260.9 400.6 260.9C467.8 260.9 480.3 305.2 480.3 362.8L480.3 480z"/></svg>
+              </a>
+              <span class="text-xs text-white/70">LinkedIn</span>
+            </div>
+            <div class="flex flex-col items-center gap-2">
+              <a
+                class="social-icon inline-flex h-12 w-12 items-center justify-center rounded-full border border-white/15 bg-white/5 text-white"
+                href="https://github.com/itsyuvarajm"
+                target="_blank"
+                rel="noreferrer"
+                aria-label="GitHub"
+              >
+                <svg class="h-6 w-6" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+                </svg>
+              </a>
+              <span class="text-xs text-white/70">GitHub</span>
+            </div>
+            <div class="flex flex-col items-center gap-2">
+              <a
+                class="social-icon inline-flex h-12 w-12 items-center justify-center rounded-full border border-white/15 bg-white/5 text-white"
+                href="https://github.com/itsyuvarajm/Yuvaraj-Portfolio/raw/main/Yuvaraj_Resume.pdf"
+                target="_blank"
+                rel="noreferrer"
+                aria-label="Download Resume"
+              >
+                <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+                  <polyline points="14 2 14 8 20 8" />
+                  <line x1="12" y1="18" x2="12" y2="12" />
+                  <polyline points="9 15 12 18 15 15" />
+                </svg>
+              </a>
+              <span class="text-xs text-white/70">Resume</span>
+            </div>
           </div>
         </div>
       </section>
